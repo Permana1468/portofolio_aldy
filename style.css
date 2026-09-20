@@ -100,16 +100,23 @@ canvas {
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #ffffff;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: -0.5px;
 }
 
-.logo span {
-  color: var(--color-primary);
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 4px 12px rgba(0, 200, 255, 0.4));
 }
 
 .nav-links {
