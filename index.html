@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cyber Aldy - Creative Director & Tech Specialist</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Canvas Animation Background (Fixed) -->
+  <div class="canvas-container">
+    <canvas id="animationCanvas"></canvas>
+    <div class="dark-overlay"></div>
+  </div>
+
+  <!-- Transparent Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">Cyber<span>Aldy</span></a>
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">Beranda</a>
+        <a href="#about" class="nav-link">Tentang</a>
+        <a href="#projects" class="nav-link">Proyek</a>
+        <a href="#contact" class="nav-link">Kontak</a>
+      </nav>
+      <a href="#contact" class="btn-cta">
+        <span>Hubungi Saya</span>
+        <div class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Content Overlay -->
+  <main class="content-wrapper">
+    
+    <!-- Hero Section (Home) -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-main">
+          <span class="hero-subtitle">Halo, Saya seorang</span>
+          <h1 class="hero-title">Creative<br>Director</h1>
+        </div>
+        <div class="hero-secondary">
+          <h2 class="hero-tagline">Desain & kode hebat terasa tanpa batas.</h2>
+          <p class="hero-description">
+            Dari arsitektur siber hingga antarmuka modern, saya membangun solusi digital berpengaruh yang menghubungkan ide dengan hasil nyata.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature Grid Bar (01 to 04) -->
+      <div class="hero-features">
+        <div class="feature-item">
+          <span class="feature-num">#01</span>
+          <span class="feature-text">Strategi Digital</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">#02</span>
+          <span class="feature-text">Desain & Identitas</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">#03</span>
+          <span class="feature-text">Pengembangan Web</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">#04</span>
+          <span class="feature-text">Keamanan Siber</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+      <div class="glass-card section-card">
+        <div class="section-header">
+          <span class="section-badge"># Tentang Saya</span>
+          <h2 class="section-title">Inovasi Teknologi & Sentuhan Kreatif</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Saya adalah seorang <strong>Creative Director & Specialist Teknologi</strong> dengan komitmen penuh pada presisi visual dan performa kode. Saya menggabungkan keahlian keamanan siber, pengembangan web modern, serta identitas merek visual untuk menciptakan produk digital kelas dunia.
+            </p>
+            <p>
+              Fokus utama saya adalah membantu bisnis dan kreator bertransformasi digital melalui antarmuka pengguna yang responsif, aman, dan memikat sejak pandangan pertama.
+            </p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Tahun Pengalaman</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">40+</span>
+              <span class="stat-label">Proyek Selesai</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">99%</span>
+              <span class="stat-label">Tingkat Kepuasan</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Keamanan Siber</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-wrapper">
+          <h3 class="skills-title">Keahlian & Spesialisasi</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Pengarah Kreatif</span>
+            <span class="skill-tag">Pengembangan Web Fullstack</span>
+            <span class="skill-tag">Keamanan Siber</span>
+            <span class="skill-tag">Desain UI/UX</span>
+            <span class="skill-tag">React / Next.js</span>
+            <span class="skill-tag">Arsitektur Cloud</span>
+            <span class="skill-tag">Identitas Merek</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="section-header center">
+        <span class="section-badge"># Portofolio Pilihan</span>
+        <h2 class="section-title">Karya & Proyek Terbuka</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="glass-card project-card">
+          <div class="project-tag">Keamanan Siber</div>
+          <h3 class="project-title">Cyber Shield Dashboard</h3>
+          <p class="project-desc">
+            Platform pemantauan ancaman keamanan siber secara real-time dengan antarmuka futuristik dan analisis AI.
+          </p>
+          <div class="project-tech">
+            <span>React</span>
+            <span>Tailwind</span>
+            <span>Python Security</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card project-card">
+          <div class="project-tag">Pengembangan Web</div>
+          <h3 class="project-title">Nexa Creative Studio</h3>
+          <p class="project-desc">
+            Website studio kreatif dengan animasi 3D interaktif dan performa kecepatan akses maksimum.
+          </p>
+          <div class="project-tech">
+            <span>Next.js</span>
+            <span>Three.js</span>
+            <span>WebGL</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card project-card">
+          <div class="project-tag">Identitas Merek</div>
+          <h3 class="project-title">Folioblox Digital Suite</h3>
+          <p class="project-desc">
+            Desain sistem identitas digital untuk perusahaan teknologi modern yang berfokus pada pengalaman pengguna.
+          </p>
+          <div class="project-tech">
+            <span>UI/UX Design</span>
+            <span>Design System</span>
+            <span>Branding</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="glass-card section-card">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="section-badge"># Kontak</span>
+            <h2 class="section-title">Mari Bekerja Sama</h2>
+            <p class="contact-desc">
+              Punya ide proyek menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya.
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-label">Email:</span>
+                <a href="mailto:aldyansyah@cyberaldy.com" class="contact-value">aldyansyah@cyberaldy.com</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Lokasi:</span>
+                <span class="contact-value">Indonesia</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Status:</span>
+                <span class="contact-value status-available">Tersedia untuk Proyek Baru</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda telah terkirim! Terima kasih.');">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Alamat Email</label>
+              <input type="email" id="email" placeholder="nama@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Pesan Anda</label>
+              <textarea id="message" rows="4" placeholder="Ceritakan tentang proyek Anda..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span>Kirim Pesan</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2026 Cyber Aldy. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
