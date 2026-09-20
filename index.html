@@ -19,9 +19,15 @@
 </head>
 
 <body>
-  <!-- Loading Screen -->
+  <!-- Fast Percentage Loading Screen -->
   <div id="loading" class="loading-overlay">
-    <div class="spinner"></div>
+    <div class="loader-box">
+      <div class="spinner"></div>
+      <div class="loader-text"><span id="loadPercentage">0</span>%</div>
+      <div class="loader-bar">
+        <div id="loaderProgressBar" class="loader-bar-fill"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Canvas Animation Background (Fixed) -->

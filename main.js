@@ -1,17 +1,21 @@
 import Lenis from 'lenis';
 
 const TOTAL_FRAMES = 240;
+const BATCH_CONCURRENCY = 20; // Concurrent fetch workers for lightning fast preloading
 
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas.getContext('2d', { alpha: false });
 const loadingOverlay = document.getElementById('loading');
+const loadPercentageEl = document.getElementById('loadPercentage');
+const loaderProgressBarEl = document.getElementById('loaderProgressBar');
 
 const frames = new Array(TOTAL_FRAMES);
+let loadedCount = 0;
 let currentFrameFloat = 0;
 let targetFrame = 0;
 let lastRenderedFrame = -1;
 
-// Resize canvas handling
+// Responsive Canvas Sizing
 function resizeCanvas() {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   canvas.width = window.innerWidth * dpr;
@@ -82,41 +86,66 @@ function getFramePath(index) {
   return `./Cyber_Aldy/ezgif-frame-${frameNumber}.jpg`;
 }
 
-// Preload frames into ImageBitmap
-async function preloadFrames() {
-  const loadPromises = [];
+// Single frame loader with progress notification
+function loadFrame(index) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = getFramePath(index);
+    img.onload = async () => {
+      try {
+        const bitmap = await createImageBitmap(img);
+        frames[index] = bitmap;
+      } catch {
+        frames[index] = img;
+      }
+      onFrameLoaded();
+      resolve();
+    };
+    img.onerror = () => {
+      console.warn(`Failed to load frame ${index + 1}`);
+      onFrameLoaded();
+      resolve();
+    };
+  });
+}
 
-  for (let i = 0; i < TOTAL_FRAMES; i++) {
-    const p = new Promise((resolve) => {
-      const img = new Image();
-      img.src = getFramePath(i);
-      img.onload = async () => {
-        try {
-          const bitmap = await createImageBitmap(img);
-          frames[i] = bitmap;
-        } catch {
-          frames[i] = img;
-        }
-        resolve();
-      };
-      img.onerror = () => {
-        console.warn(`Failed frame ${i + 1}`);
-        resolve();
-      };
-    });
-    loadPromises.push(p);
+// Progress Bar & Percentage Counter Update
+function onFrameLoaded() {
+  loadedCount++;
+  const percent = Math.min(100, Math.floor((loadedCount / TOTAL_FRAMES) * 100));
+  
+  if (loadPercentageEl) {
+    loadPercentageEl.textContent = percent;
   }
+  if (loaderProgressBarEl) {
+    loaderProgressBarEl.style.width = `${percent}%`;
+  }
+}
 
-  await Promise.all(loadPromises);
+// High-speed pooled concurrent frame preloader
+async function preloadFrames() {
+  const queue = Array.from({ length: TOTAL_FRAMES }, (_, i) => i);
+  const workers = Array.from({ length: BATCH_CONCURRENCY }, async () => {
+    while (queue.length > 0) {
+      const index = queue.shift();
+      if (index !== undefined) {
+        await loadFrame(index);
+      }
+    }
+  });
+
+  await Promise.all(workers);
 
   // Set initial dimensions
   resizeCanvas();
 
-  // Hide loading spinner
-  loadingOverlay.classList.add('hidden');
-
-  // Start main render loop
-  renderLoop();
+  // Hide loading screen after 100% completion
+  setTimeout(() => {
+    if (loadingOverlay) {
+      loadingOverlay.classList.add('hidden');
+    }
+    renderLoop();
+  }, 150);
 }
 
 // Calculate target frame from scroll
@@ -132,7 +161,7 @@ function calculateTargetFrame() {
   }
 }
 
-// Event listeners for scroll updates
+// Scroll Listeners
 window.addEventListener('scroll', () => {
   calculateTargetFrame();
   updateActiveNav();
@@ -143,7 +172,7 @@ lenis.on('scroll', () => {
   updateActiveNav();
 });
 
-// Cover mode image drawing
+// Fullscreen Cover Mode Image Drawing
 function drawImageCover(img, targetWidth, targetHeight) {
   const imgWidth = img.width || 1920;
   const imgHeight = img.height || 1080;
@@ -176,12 +205,12 @@ function renderFrame(index) {
   }
 }
 
-// Render loop with smooth lerp interpolation
+// High performance render loop with smooth lerp interpolation
 function renderLoop() {
   calculateTargetFrame();
 
   const delta = targetFrame - currentFrameFloat;
-  currentFrameFloat += delta * 0.15; // Smooth factor
+  currentFrameFloat += delta * 0.16; // Lightning smooth lerp factor
 
   const frameToRender = Math.min(
     TOTAL_FRAMES - 1,
@@ -196,5 +225,5 @@ function renderLoop() {
   requestAnimationFrame(renderLoop);
 }
 
-// Preload
+// Start Preloading
 preloadFrames();
