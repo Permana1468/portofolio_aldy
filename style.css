@@ -189,6 +189,12 @@ canvas {
   transform: translateX(2px);
 }
 
+/* Base Mobile Elements Hidden by default on Desktop */
+.mobile-top-cta,
+.mobile-bottom-nav {
+  display: none;
+}
+
 /* Content Wrapper Layout */
 .content-wrapper {
   position: relative;
@@ -655,18 +661,82 @@ canvas {
     padding: 0.85rem 1rem;
   }
 
+  .nav-links,
+  .navbar .btn-cta {
+    display: none !important;
+  }
+
   .logo-img {
-    height: 38px;
+    height: 36px;
   }
 
-  .btn-cta {
-    padding: 0.4rem 0.5rem 0.4rem 0.9rem;
-    font-size: 0.8rem;
+  .mobile-top-cta {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    color: #030305;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
   }
 
-  .btn-icon {
-    width: 26px;
-    height: 26px;
+  .mobile-top-cta:active {
+    transform: scale(0.95);
+  }
+
+  /* Mobile Bottom App Navigation Dock */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: calc(100% - 2rem);
+    max-width: 380px;
+    background: rgba(12, 13, 22, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 0.4rem 0.6rem;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .mobile-bottom-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-bottom-link svg {
+    stroke: #94a3b8;
+    transition: stroke 0.25s ease;
+  }
+
+  .mobile-bottom-link.active,
+  .mobile-bottom-link:hover {
+    color: #ffffff;
+    background: rgba(255, 85, 0, 0.18);
+  }
+
+  .mobile-bottom-link.active svg,
+  .mobile-bottom-link:hover svg {
+    stroke: var(--color-primary);
   }
 
   .content-wrapper {

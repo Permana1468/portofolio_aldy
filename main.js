@@ -56,9 +56,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Update active navigation link on scroll
+// Update active navigation link on scroll (Desktop & Mobile Dock)
 const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+const allNavLinks = document.querySelectorAll('.nav-link, .mobile-bottom-link');
 
 function updateActiveNav() {
   let currentSectionId = 'home';
@@ -72,7 +72,7 @@ function updateActiveNav() {
     }
   });
 
-  navLinks.forEach((link) => {
+  allNavLinks.forEach((link) => {
     link.classList.remove('active');
     if (link.getAttribute('href') === `#${currentSectionId}`) {
       link.classList.add('active');
