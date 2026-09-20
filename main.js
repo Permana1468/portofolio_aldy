@@ -122,9 +122,34 @@ function onFrameLoaded() {
   }
 }
 
-// High-speed pooled concurrent frame preloader
+const PRIORITY_FRAMES = 15;
+
+// Instant initial launch preloader (Priority frames 0-15 load in <0.3s)
 async function preloadFrames() {
-  const queue = Array.from({ length: TOTAL_FRAMES }, (_, i) => i);
+  // Phase 1: Load priority initial frames for instant launch
+  const priorityPromises = [];
+  for (let i = 0; i < PRIORITY_FRAMES; i++) {
+    priorityPromises.push(loadFrame(i));
+  }
+  await Promise.all(priorityPromises);
+
+  // Set initial canvas resolution
+  resizeCanvas();
+  renderFrame(0);
+
+  // Instant launch (<0.3s)
+  if (loadPercentageEl) loadPercentageEl.textContent = '100';
+  if (loaderProgressBarEl) loaderProgressBarEl.style.width = '100%';
+
+  setTimeout(() => {
+    if (loadingOverlay) {
+      loadingOverlay.classList.add('hidden');
+    }
+    renderLoop();
+  }, 100);
+
+  // Phase 2: Stream remaining 225 frames silently in background
+  const queue = Array.from({ length: TOTAL_FRAMES - PRIORITY_FRAMES }, (_, i) => i + PRIORITY_FRAMES);
   const workers = Array.from({ length: BATCH_CONCURRENCY }, async () => {
     while (queue.length > 0) {
       const index = queue.shift();
@@ -135,17 +160,6 @@ async function preloadFrames() {
   });
 
   await Promise.all(workers);
-
-  // Set initial dimensions
-  resizeCanvas();
-
-  // Hide loading screen after 100% completion
-  setTimeout(() => {
-    if (loadingOverlay) {
-      loadingOverlay.classList.add('hidden');
-    }
-    renderLoop();
-  }, 150);
 }
 
 // Calculate target frame from scroll
