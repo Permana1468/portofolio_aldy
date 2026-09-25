@@ -15,18 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const adminUserInput = document.getElementById('adminUser');
-  const adminPassInput = document.getElementById('adminPass');
-
-  if (adminUserInput) {
-    adminUserInput.value = 'Aldyansyah';
-  }
-
-  const customPass = localStorage.getItem('admin_password');
-  if (adminPassInput) {
-    adminPassInput.value = customPass || 'admin123';
-  }
-
   const container = document.getElementById('loginContainer');
   const signUpBtn = document.getElementById('sign-up-btn');
   const signInBtn = document.getElementById('sign-in-btn');
@@ -35,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     signUpBtn.addEventListener('click', () => {
       container.classList.add('sign-up-mode');
       setTimeout(() => {
-        alert('Fitur Sign Up (Pendaftaran Akun Baru) saat ini dikunci oleh Sistem.\n\nSilakan masuk menggunakan akun Administrator resmi (Username: Aldyansyah).');
+        alert('Fitur Sign Up (Pendaftaran Akun Baru) saat ini dikunci oleh Sistem.\n\nSilakan masuk menggunakan akun Administrator resmi.');
       }, 300);
     });
   }
@@ -52,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const username = document.getElementById('adminUser').value.trim();
       const password = document.getElementById('adminPass').value.trim();
+
+      if (!username || !password) {
+        alert('Silakan isi Username dan Password Anda.');
+        return;
+      }
 
       try {
         const res = await fetch('/api/auth', {
@@ -87,10 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (signupForm) {
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Fitur Sign Up (Pendaftaran Akun Baru) saat ini dikunci oleh Sistem.\n\nSilakan gunakan akun Administrator resmi (Aldyansyah).');
+      alert('Fitur Sign Up (Pendaftaran Akun Baru) saat ini dikunci oleh Sistem.\n\nSilakan gunakan akun Administrator resmi.');
       container.classList.remove('sign-up-mode');
-      if (adminUserInput) adminUserInput.value = 'Aldyansyah';
-      if (adminPassInput) adminPassInput.value = localStorage.getItem('admin_password') || 'admin123';
     });
   }
 });
