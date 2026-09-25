@@ -15,6 +15,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -39,13 +41,14 @@
   <!-- Transparent Header / Navigation -->
   <header class="navbar">
     <div class="nav-container">
-      <a href="#home" class="logo">
+      <a href="./login.html" class="logo">
         <img src="./Cyber_Aldy/images/LOGO ALDY.png" alt="ALDY Logo" class="logo-img">
       </a>
       <nav class="nav-links">
         <a href="#home" class="nav-link active">Beranda</a>
         <a href="#about" class="nav-link">Tentang</a>
         <a href="#projects" class="nav-link">Proyek</a>
+        <a href="#news" class="nav-link">Berita</a>
         <a href="#contact" class="nav-link">Kontak</a>
       </nav>
       <a href="#contact" class="btn-cta">
@@ -68,19 +71,30 @@
   <!-- Mobile Floating App Navigation Dock -->
   <nav class="mobile-bottom-nav">
     <a href="#home" class="mobile-bottom-link active">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      </svg>
       <span>Beranda</span>
     </a>
     <a href="#about" class="mobile-bottom-link">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
       <span>Tentang</span>
     </a>
     <a href="#projects" class="mobile-bottom-link">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
       <span>Proyek</span>
     </a>
     <a href="#contact" class="mobile-bottom-link">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
       <span>Kontak</span>
     </a>
   </nav>
@@ -103,6 +117,20 @@
             Berpengalaman dalam tata kelola perencanaan administrasi, dipadukan dengan kecintaan merancang
             antarmuka visual dan membangun aplikasi web yang fungsional serta berdampak.
           </p>
+          <div class="hero-social-links">
+            <a href="https://github.com/permana1468" target="_blank" rel="noopener noreferrer"
+              class="hero-social-icon social-github-link" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/muhamad-aldiansyah" target="_blank" rel="noopener noreferrer"
+              class="hero-social-icon social-linkedin-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              class="hero-social-icon social-instagram-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+              class="hero-social-icon social-twitter-link" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
+              class="hero-social-icon social-whatsapp-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:muhamadaldiansyah100797@gmail.com" target="_blank" rel="noopener noreferrer"
+              class="hero-social-icon social-email-link" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
         </div>
       </div>
 
@@ -118,11 +146,11 @@
         </div>
         <div class="feature-item">
           <span class="feature-num">#03</span>
-          <span class="feature-text">Pengembangan Web</span>
+          <span class="feature-text">Sistem berbasis IoT & Otomasi</span>
         </div>
         <div class="feature-item">
           <span class="feature-num">#04</span>
-          <span class="feature-text">Keamanan Siber</span>
+          <span class="feature-text">Design Engineering</span>
         </div>
       </div>
     </section>
@@ -149,19 +177,19 @@
           </div>
           <div class="stats-grid">
             <div class="stat-card">
-              <span class="stat-number">4+</span>
+              <span class="stat-number" data-target="4" data-suffix="+">0+</span>
               <span class="stat-label">Tahun Pengalaman</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number">20+</span>
+              <span class="stat-number" data-target="20" data-suffix="+">0+</span>
               <span class="stat-label">Dokumen & Proyek Selesai</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number">100%</span>
+              <span class="stat-number" data-target="100" data-suffix="%">0%</span>
               <span class="stat-label">Akurasi & Dedikasi Data</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number">Full</span>
+              <span class="stat-number" data-morph="percent-to-text" data-text="Full">0%</span>
               <span class="stat-label">Stack & UI/UX Integration</span>
             </div>
           </div>
@@ -184,51 +212,140 @@
 
     <!-- Projects Section -->
     <section id="projects" class="section projects-section">
-      <div class="section-header center">
-        <span class="section-badge"># Portofolio Pilihan</span>
-        <h2 class="section-title">Karya & Proyek Terbuka</h2>
+      <div class="section-header-flex">
+        <div class="section-header center" style="margin-bottom: 0;">
+          <span class="section-badge"># Portofolio Pilihan</span>
+          <h2 class="section-title">Karya & Proyek Terbuka</h2>
+        </div>
+        <div class="projects-carousel-controls">
+          <button id="projPrevBtn" class="carousel-nav-btn prev" aria-label="Proyek Sebelumnya" title="Proyek Sebelumnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button id="projNextBtn" class="carousel-nav-btn next" aria-label="Proyek Selanjutnya" title="Proyek Selanjutnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="glass-card project-card">
-          <div class="project-tag">Keamanan Siber</div>
-          <h3 class="project-title">Cyber Shield Dashboard</h3>
-          <p class="project-desc">
-            Platform pemantauan ancaman keamanan siber secara real-time dengan antarmuka futuristik dan analisis AI.
-          </p>
-          <div class="project-tech">
-            <span>React</span>
-            <span>Tailwind</span>
-            <span>Python Security</span>
+      <div class="projects-carousel-container">
+        <div id="projectsCarouselTrack" class="projects-carousel-track">
+          <!-- Project 1: Website Desa Cimanggu I (Featured) -->
+          <div class="glass-card project-card featured-card">
+            <div class="project-header">
+              <span class="project-tag">System Digitalisasi Desa (SDD) </span>
+              <a href="https://www.desacimanggusatu.web.id" target="_blank" rel="noopener noreferrer"
+                class="project-arrow-btn" aria-label="Buka Website Desa Cimanggu I"
+                title="Kunjungi desacimanggusatu.web.id">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+            <h3 class="project-title">
+              <a href="https://www.desacimanggusatu.web.id" target="_blank" rel="noopener noreferrer"
+                class="project-title-link">
+                Portal Resmi Desa Cimanggu I
+              </a>
+            </h3>
+            <p class="project-desc">
+              Website portal resmi Desa Cimanggu I yang memadukan sistem digitalisasi administrasi desa, transparansi
+              informasi publik, serta integrasi layanan masyarakat yang responsif dan mudah diakses.
+            </p>
+            <div class="project-footer">
+              <div class="project-tech">
+                <span>Digitalisasi Desa</span>
+                <span>Tata Kelola Web</span>
+                <span>UI/UX & System Integration</span>
+              </div>
+              <a href="https://www.desacimanggusatu.web.id" target="_blank" rel="noopener noreferrer"
+                class="project-visit-btn">
+                <span>Kunjungi Website</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <span class="project-tag">Pengembangan Web</span>
+              <div class="project-arrow-btn disabled">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+            <h3 class="project-title">Nexa Creative Studio</h3>
+            <p class="project-desc">
+              Website studio kreatif dengan animasi 3D interaktif dan performa kecepatan akses maksimum.
+            </p>
+            <div class="project-footer">
+              <div class="project-tech">
+                <span>Next.js</span>
+                <span>Three.js</span>
+                <span>WebGL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <span class="project-tag">Keamanan & Data</span>
+              <div class="project-arrow-btn disabled">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+            <h3 class="project-title">Cyber Shield Dashboard</h3>
+            <p class="project-desc">
+              Platform pemantauan ancaman keamanan siber secara real-time dengan antarmuka futuristik dan analisis AI.
+            </p>
+            <div class="project-footer">
+              <div class="project-tech">
+                <span>React</span>
+                <span>Tailwind</span>
+                <span>Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News & Vercel Database Section -->
+    <section id="news" class="section news-section">
+      <div class="glass-card section-card">
+        <div class="news-header-flex">
+          <div>
+            <span class="section-badge"># Berita & Vercel Database</span>
+            <h2 class="section-title">Artikel & Kabar Terbaru</h2>
+            <p class="section-desc">
+              Data artikel tersimpan di <strong>Vercel Postgres</strong> dan foto diunggah langsung ke <strong>Vercel
+                Blob Storage</strong>.
+            </p>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="glass-card project-card">
-          <div class="project-tag">Pengembangan Web</div>
-          <h3 class="project-title">Nexa Creative Studio</h3>
-          <p class="project-desc">
-            Website studio kreatif dengan animasi 3D interaktif dan performa kecepatan akses maksimum.
-          </p>
-          <div class="project-tech">
-            <span>Next.js</span>
-            <span>Three.js</span>
-            <span>WebGL</span>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="glass-card project-card">
-          <div class="project-tag">Identitas Merek</div>
-          <h3 class="project-title">Folioblox Digital Suite</h3>
-          <p class="project-desc">
-            Desain sistem identitas digital untuk perusahaan teknologi modern yang berfokus pada pengalaman pengguna.
-          </p>
-          <div class="project-tech">
-            <span>UI/UX Design</span>
-            <span>Design System</span>
-            <span>Branding</span>
+        <div id="newsGrid" class="news-grid">
+          <div class="news-loading">
+            <div class="spinner"></div>
+            <p>Memuat artikel dari Vercel Database...</p>
           </div>
         </div>
       </div>
@@ -261,8 +378,7 @@
             </div>
           </div>
 
-          <form class="contact-form"
-            onsubmit="event.preventDefault(); alert('Pesan Anda telah terkirim! Terima kasih.');">
+          <form id="contactForm" class="contact-form">
             <div class="form-group">
               <label for="name">Nama Lengkap</label>
               <input type="text" id="name" placeholder="Masukkan nama Anda" required>
@@ -289,6 +405,20 @@
 
     <!-- Footer -->
     <footer class="footer">
+      <div class="footer-social-links">
+        <a href="https://github.com/permana1468" target="_blank" rel="noopener noreferrer"
+          class="footer-social-icon social-github-link" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/muhamad-aldiansyah" target="_blank" rel="noopener noreferrer"
+          class="footer-social-icon social-linkedin-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+          class="footer-social-icon social-instagram-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon social-twitter-link"
+          title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
+          class="footer-social-icon social-whatsapp-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:muhamadaldiansyah100797@gmail.com" target="_blank" rel="noopener noreferrer"
+          class="footer-social-icon social-email-link" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
       <p>© 2026 Muhamad Aldiansyah. Hak Cipta Dilindungi Undang-Undang.</p>
     </footer>
 

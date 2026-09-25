@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Muhamad Aldiansyah</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="admin-body">
+  <!-- Mobile Header Navbar -->
+  <div class="mobile-header-bar">
+    <div style="display:flex; align-items:center; gap:0.6rem; font-family:'Outfit',sans-serif; font-weight:700;">
+      <img src="./Cyber_Aldy/images/LOGO ALDY.png" alt="Logo" width="28" height="28" style="border-radius:6px;">
+      <span>Aldy Panel</span>
+    </div>
+    <button id="mobileSidebarToggle"
+      style="background:rgba(255,255,255,0.15); border:none; color:#fff; padding:0.4rem 0.75rem; border-radius:8px; cursor:pointer;">
+      Menu
+    </button>
+  </div>
+
+  <!-- Mobile Backdrop Overlay -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+  <!-- Admin Dashboard Layout -->
+  <div class="admin-layout">
+    <!-- Slideable Deep Purple Sidebar -->
+    <aside id="adminSidebar" class="admin-sidebar">
+      <div class="admin-brand-wrapper">
+        <div class="admin-brand">
+          <img src="./Cyber_Aldy/images/LOGO ALDY.png" alt="Logo">
+        </div>
+      </div>
+
+      <nav class="admin-nav">
+        <!-- Item 0: Dashboard Utama -->
+        <div class="admin-nav-item active" data-tab="tab-dashboard">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </div>
+          <span>Dashboard Utama</span>
+        </div>
+
+        <!-- Item 1: Hero & About -->
+        <div class="admin-nav-item" data-tab="tab-hero">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            </svg>
+          </div>
+          <span>Hero & About</span>
+        </div>
+
+        <!-- Item 2: Projects -->
+        <div class="admin-nav-item" data-tab="tab-projects">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <span>Kelola Proyek</span>
+        </div>
+
+        <!-- Item 3: News & Blob -->
+        <div class="admin-nav-item" data-tab="tab-news">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path
+                d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2">
+              </path>
+            </svg>
+          </div>
+          <span>Berita Kegiatan</span>
+        </div>
+
+        <!-- Item 4: Messages -->
+        <div class="admin-nav-item" data-tab="tab-messages">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <span>Pesan Masuk</span>
+        </div>
+
+        <!-- Item 5: Security / Change Password -->
+        <div class="admin-nav-item" data-tab="tab-security">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <span>Ubah Password</span>
+        </div>
+
+        <!-- Item 6: Calendar & Reminders Agenda -->
+        <div class="admin-nav-item" data-tab="tab-calendar">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span>Kalender & Agenda</span>
+        </div>
+
+        <!-- Item 7: Kelola Media Sosial -->
+        <div class="admin-nav-item" data-tab="tab-social">
+          <div class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </div>
+          <span>Kelola Medsos</span>
+        </div>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="./index.html" target="_blank" class="admin-nav-item"
+          style="color: #2ed573; border-radius: 12px; margin-right: 0;">
+          <div class="icon-badge" style="background: rgba(46,213,115,0.15); color: #2ed573;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </div>
+          <span>Lihat Website</span>
+        </a>
+
+        <!-- User Profile & Action Bar Card -->
+        <div class="user-profile-card">
+          <div class="user-profile-info">
+            <div class="avatar-wrapper">
+              <img src="./Cyber_Aldy/images/LOGO ALDY.png" alt="Avatar" class="user-avatar">
+              <span class="status-indicator-dot"></span>
+            </div>
+            <div class="user-details">
+              <span class="user-name">Aldy Admin</span>
+              <span class="user-role">Administrator</span>
+            </div>
+          </div>
+          <div class="user-profile-actions">
+            <button id="notifBellBtn" class="profile-action-btn" title="Notifikasi Sistem">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge-dot"></span>
+            </button>
+            <button id="logoutBtn" class="profile-action-btn logout-action-btn" title="Keluar (Logout)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <!-- Top Reference Style Banner -->
+      <div class="admin-top-banner">
+        <h1 id="topBannerTitle">Dashboard Administrator</h1>
+        <div class="admin-top-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <span>Tahun 2026 - Portfolio V2.0</span>
+        </div>
+      </div>
+
+      <!-- Tab 0: Dashboard Utama Overview -->
+      <section id="tab-dashboard" class="admin-tab-content active">
+        <!-- 4 Reference Style KPI Quick Stat Cards -->
+        <div class="kpi-grid">
+          <!-- Widget 1: Visitors (Red Accent Border) -->
+          <div class="kpi-card kpi-red">
+            <div class="kpi-info-box">
+              <div class="kpi-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <div class="kpi-title">Trafik Pengunjung</div>
+                <div id="dashTotalVisitors" class="kpi-val">1,842</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 2: News & Blob (Purple Accent Border) -->
+          <div class="kpi-card kpi-purple">
+            <div class="kpi-info-box">
+              <div class="kpi-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2">
+                  </path>
+                </svg>
+              </div>
+              <div>
+                <div class="kpi-title">Artikel & Blob Storage</div>
+                <div id="dashTotalNews" class="kpi-val">2</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Projects (Yellow Accent Border) -->
+          <div class="kpi-card kpi-yellow">
+            <div class="kpi-info-box">
+              <div class="kpi-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="kpi-title">Proyek Portofolio</div>
+                <div id="dashTotalProjects" class="kpi-val">3</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 4: Messages (Green Accent Border) -->
+          <div class="kpi-card kpi-green">
+            <div class="kpi-info-box">
+              <div class="kpi-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <div class="kpi-title">Pesan Masuk Kontak</div>
+                <div id="dashTotalMessages" class="kpi-val">0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Column Analytics & Maintenance Area -->
+        <div class="dashboard-two-col">
+          <!-- Left Column: Traffic Chart & Audit Feed -->
+          <div>
+            <!-- Traffic Chart Card -->
+            <div class="admin-card">
+              <div class="card-header-flex">
+                <h3 class="card-title">Grafik Analitis Trafik Mingguan</h3>
+                <span
+                  style="font-size: 0.78rem; padding: 0.2rem 0.6rem; background: rgba(83, 82, 237, 0.12); color: var(--accent-purple); border-radius: 6px; font-weight: 600;">Live
+                  Traffic 60 FPS</span>
+              </div>
+              <div class="traffic-chart-box">
+                <svg class="traffic-svg" viewBox="0 0 500 180" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#5352ed" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#5352ed" stop-opacity="0.0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 0,140 Q 70,60 140,110 T 280,50 T 420,90 L 500,30 L 500,180 L 0,180 Z"
+                    fill="url(#chartGrad)" />
+                  <path d="M 0,140 Q 70,60 140,110 T 280,50 T 420,90 L 500,30" fill="none" stroke="#5352ed"
+                    stroke-width="3.5" stroke-linecap="round" />
+                  <circle cx="70" cy="85" r="4" fill="#5352ed" stroke="#fff" stroke-width="2" />
+                  <circle cx="140" cy="110" r="4" fill="#5352ed" stroke="#fff" stroke-width="2" />
+                  <circle cx="210" cy="70" r="4" fill="#5352ed" stroke="#fff" stroke-width="2" />
+                  <circle cx="280" cy="50" r="5" fill="#f07167" stroke="#fff" stroke-width="2" />
+                  <circle cx="350" cy="75" r="4" fill="#5352ed" stroke="#fff" stroke-width="2" />
+                  <circle cx="420" cy="90" r="4" fill="#5352ed" stroke="#fff" stroke-width="2" />
+                  <circle cx="500" cy="30" r="5" fill="#2ed573" stroke="#fff" stroke-width="2" />
+                </svg>
+              </div>
+              <div
+                style="display: flex; justify-content: space-between; font-size: 0.78rem; color: #718096; margin-top: 0.5rem;">
+                <span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+              </div>
+
+              <div style="margin-top: 1.25rem; border-top: 1px solid #edf2f7; padding-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.4rem;">
+                  <span style="color: #4a5568;">Perangkat Pengunjung</span>
+                  <span style="color: var(--accent-purple); font-weight: 600;">Desktop (65%) vs Mobile (35%)</span>
+                </div>
+                <div class="device-progress-bar">
+                  <div class="device-fill-desktop"></div>
+                  <div class="device-fill-mobile"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audit Feed Card -->
+            <div class="admin-card">
+              <div class="card-header-flex">
+                <div>
+                  <h3 class="card-title">Log Aktivitas & Audit Sistem</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem;">Jejak aktivitas keamanan,
+                    otentikasi admin, dan pemeliharaan.</p>
+                </div>
+                <span
+                  style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: #feefc3; color: #b45309; border-radius: 6px; font-weight: 600;">Real-Time</span>
+              </div>
+
+              <div class="activity-list" id="dashboardAuditTrail">
+                <div class="activity-item" style="justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div class="activity-dot" style="background: var(--accent-green);"></div>
+                    <span><strong>[Otentikasi]</strong> Admin Login berhasil via Token HMAC-SHA256</span>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #94a3b8;">05:05:12</span>
+                </div>
+                <div class="activity-item" style="justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div class="activity-dot" style="background: var(--accent-purple);"></div>
+                    <span><strong>[Blob Storage]</strong> Foto sampul berita terhubung ke Vercel Blob</span>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #94a3b8;">05:04:45</span>
+                </div>
+                <div class="activity-item" style="justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div class="activity-dot" style="background: var(--accent-red);"></div>
+                    <span><strong>[Postgres DB]</strong> Data site_settings dan berita tersinkronisasi</span>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #94a3b8;">05:02:10</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Storage Capacity, Spam Cleaner & 3 Colored Status Badges -->
+          <div>
+            <!-- Storage Capacity Card -->
+            <div class="admin-card">
+              <div class="card-header-flex">
+                <h3 class="card-title" style="font-size: 1.05rem;">Storage Vercel Blob</h3>
+                <span
+                  style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(83, 82, 237, 0.12); color: var(--accent-purple); border-radius: 6px; font-weight: 600;">Quota
+                  Free Plan</span>
+              </div>
+              <div style="margin-bottom: 0.5rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.35rem;">
+                  <span style="color: var(--text-muted);">Penggunaan Storage:</span>
+                  <span style="color: #1a202c; font-weight: 700;">2.4 MB / 500 MB (0.5%)</span>
+                </div>
+                <div style="height: 10px; background: #edf2f7; border-radius: 999px; overflow: hidden;">
+                  <div
+                    style="width: 0.5%; min-width: 12px; height: 100%; background: linear-gradient(90deg, var(--accent-purple), #70a1ff);">
+                  </div>
+                </div>
+              </div>
+              <div
+                style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--accent-green); margin-top: 0.6rem; font-weight: 600;">
+                <span>🟢 Kapasitas Aman (Sisa 497.6 MB)</span>
+                <span>2 Foto Terunggah</span>
+              </div>
+            </div>
+
+            <!-- Spam & Cache Cleaner Widget -->
+            <div class="admin-card">
+              <div class="card-header-flex">
+                <h3 class="card-title" style="font-size: 1.05rem;">Pembersih Spam & Cache</h3>
+                <span id="cacheStatusBadge"
+                  style="font-size: 0.75rem; padding: 0.15rem 0.55rem; background: #dcfce7; color: #15803d; border-radius: 6px; font-weight: 600;">Status:
+                  Optimal</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
+                Jika aplikasi terasa berat, klik tombol di bawah untuk membersihkan temporary data, cache memori, dan
+                memulihkan performa 60 FPS.
+              </p>
+              <button id="clearCacheBtn" class="btn-cta" style="width: 100%; justify-content: center; padding: 0.7rem;">
+                <span id="clearCacheBtnText">🧹 Bersihkan Cache & File Temporary</span>
+              </button>
+            </div>
+
+            <!-- 3 Reference Style Colored Feature Cards (Bottom Right Grid) -->
+            <div class="status-cards-row">
+              <div class="status-mini-card card-green">
+                <div class="status-mini-title">Database</div>
+                <div class="status-mini-val">Postgres</div>
+                <div class="status-mini-badge">Online 100%</div>
+              </div>
+              <div class="status-mini-card card-purple">
+                <div class="status-mini-title">Vercel Blob</div>
+                <div class="status-mini-val">Ready</div>
+                <div class="status-mini-badge">60 FPS Access</div>
+              </div>
+              <div class="status-mini-card card-yellow">
+                <div class="status-mini-title">Security</div>
+                <div class="status-mini-val">HMAC Token</div>
+                <div class="status-mini-badge">Protected</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 1: Hero & About -->
+      <section id="tab-hero" class="admin-tab-content">
+        <div class="admin-card">
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a202c;">Pengaturan Hero & About
+          </h2>
+          <form id="heroForm">
+            <div class="admin-form-grid">
+              <div class="form-group">
+                <label>Subtitle / Sapaan</label>
+                <input type="text" id="heroSubtitle" required>
+              </div>
+              <div class="form-group">
+                <label>Nama Depan</label>
+                <input type="text" id="heroTitleLine1" required>
+              </div>
+              <div class="form-group">
+                <label>Nama Belakang</label>
+                <input type="text" id="heroTitleLine2" required>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top: 1rem;">
+              <label>Tagline Utama</label>
+              <input type="text" id="heroTagline" required>
+            </div>
+            <div class="form-group" style="margin-top: 1rem;">
+              <label>Deskripsi Singkat</label>
+              <textarea id="heroDescription" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn-cta" style="margin-top: 1.25rem;">
+              <span>Simpan Perubahan Hero</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Tab 2: Kelola Proyek -->
+      <section id="tab-projects" class="admin-tab-content">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <div>
+              <h2 style="font-size: 1.25rem; font-weight: 700; color: #1a202c;">Kelola Proyek Portofolio</h2>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">
+                Kelola daftar proyek dan portofolio karya Anda. Tambah proyek baru, edit rincian, atau hapus proyek secara real-time.
+              </p>
+            </div>
+            <button id="adminOpenProjectModalBtn" class="admin-btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">
+              <span>+ Tambah Proyek Baru</span>
+            </button>
+          </div>
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Judul Proyek</th>
+                  <th>Kategori / Tag</th>
+                  <th>Deskripsi</th>
+                  <th>Tech Stack</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="projectsTableBody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 3: News & Blob -->
+      <section id="tab-news" class="admin-tab-content">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <h2 style="font-size: 1.25rem; font-weight: 700; color: #1a202c;">Berita & Vercel Blob Storage</h2>
+            <button id="adminOpenNewsModalBtn" class="btn-cta" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+              <span>+ Tambah Berita Baru</span>
+            </button>
+          </div>
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Foto</th>
+                  <th>Judul Berita</th>
+                  <th>Kategori</th>
+                  <th>Tanggal</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="newsAdminTableBody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal Upload Berita Admin -->
+      <div id="adminNewsModal" class="modal-overlay hidden">
+        <div class="modal-card"
+          style="max-width: 550px; background: #ffffff; border-radius: 18px; padding: 1.75rem; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+          <div class="modal-header"
+            style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+            <h3 style="color: #1a202c; font-weight: 700;">Tambah Berita & Upload Foto</h3>
+            <button id="adminCloseNewsModalBtn" class="modal-close"
+              style="background:none; border:none; color:#475569; font-size:1.5rem; cursor:pointer;">&times;</button>
+          </div>
+          <form id="adminAddNewsForm" class="modal-form">
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Judul Artikel / Berita</label>
+              <input type="text" id="adminNewsTitle" placeholder="Contoh: Fitur Baru V2 Released" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Kategori</label>
+              <select id="adminNewsCategory">
+                <option value="Teknologi">Teknologi</option>
+                <option value="Pengembangan Web">Pengembangan Web</option>
+                <option value="Pengumuman">Pengumuman</option>
+                <option value="Desain & UI">Desain & UI</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Upload Foto Sampul (ke Vercel Blob)</label>
+              <input type="file" id="adminNewsImageFile" accept="image/*" required style="padding: 0.5rem 0;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Isi Konten Berita</label>
+              <textarea id="adminNewsContent" rows="4" placeholder="Tuliskan rincian artikel di sini..."
+                required></textarea>
+            </div>
+            <div class="modal-footer" style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.25rem;">
+              <button type="button" id="adminCancelNewsBtn"
+                style="padding:0.6rem 1rem; background:#e2e8f0; border:none; color:#334155; border-radius:8px; cursor:pointer; font-weight:600;">Batal</button>
+              <button type="submit" id="adminSubmitNewsBtn" class="btn-cta">
+                <span id="adminSubmitBtnText">Simpan Berita & Foto</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal Add / Edit Project Admin -->
+      <div id="adminProjectModal" class="modal-overlay hidden">
+        <div class="modal-card"
+          style="max-width: 580px; background: #ffffff; border-radius: 18px; padding: 1.75rem; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+          <div class="modal-header"
+            style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+            <h3 id="adminProjectModalTitle" style="color: #1a202c; font-weight: 700;">Tambah Proyek Baru</h3>
+            <button id="adminCloseProjectModalBtn" class="modal-close"
+              style="background:none; border:none; color:#475569; font-size:1.5rem; cursor:pointer;">&times;</button>
+          </div>
+          <form id="adminAddProjectForm" class="modal-form">
+            <input type="hidden" id="adminProjectId" value="">
+            
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Judul Proyek</label>
+              <input type="text" id="adminProjectTitle" placeholder="Contoh: Portal Resmi Desa Cimanggu I" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Kategori / Tag Proyek</label>
+              <input type="text" id="adminProjectTag" placeholder="Contoh: System Digitalisasi Desa (SDD)" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Deskripsi Ringkas Proyek</label>
+              <textarea id="adminProjectDesc" rows="3" placeholder="Tuliskan deskripsi ringkas tentang proyek..." required></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Tech Stack / Teknologi (Pisahkan dengan koma)</label>
+              <input type="text" id="adminProjectTech" placeholder="Contoh: Digitalisasi Desa, Tata Kelola Web, UI/UX">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Link Website / Tautan Proyek (Opsional)</label>
+              <input type="text" id="adminProjectUrl" placeholder="Contoh: https://www.desacimanggusatu.web.id">
+            </div>
+
+            <div class="modal-footer" style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.25rem;">
+              <button type="button" id="adminCancelProjectBtn"
+                style="padding:0.6rem 1rem; background:#e2e8f0; border:none; color:#334155; border-radius:8px; cursor:pointer; font-weight:600;">Batal</button>
+              <button type="submit" id="adminSubmitProjectBtn" class="admin-btn-primary">
+                <span id="adminSubmitProjectBtnText">💾 Simpan Proyek</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Tab 4: Messages -->
+      <section id="tab-messages" class="admin-tab-content">
+        <div class="admin-card">
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a202c;">Pesan Masuk Pengunjung
+          </h2>
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Tanggal</th>
+                  <th>Nama</th>
+                  <th>Email</th>
+                  <th>Pesan</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="messagesTableBody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 5: Profile & Security Management -->
+      <section id="tab-security" class="admin-tab-content">
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; align-items: start;">
+
+          <!-- Card 1: Edit Profile (Nama & Foto Avatar) -->
+          <div class="admin-card">
+            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c;">Ubah Identitas &
+              Foto Profil</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Perbarui nama lengkap, sebutan role, dan foto avatar yang tampil pada kartu profil admin di sidebar.
+            </p>
+            <form id="changeProfileForm">
+              <div class="form-group" style="margin-bottom: 1.25rem; text-align: center;">
+                <div style="position: relative; width: 88px; height: 88px; margin: 0 auto 0.75rem auto;">
+                  <img id="profilePreviewAvatar" src="./Cyber_Aldy/images/LOGO ALDY.png" alt="Avatar Preview"
+                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-purple); box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
+                  <div
+                    style="position: absolute; bottom: 2px; right: 2px; background: var(--accent-purple); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; border: 2px solid #fff;">
+                    📷</div>
+                </div>
+                <label
+                  style="cursor: pointer; display: inline-block; font-size: 0.85rem; color: var(--accent-purple); font-weight: 700; background: rgba(83, 82, 237, 0.1); padding: 0.4rem 0.9rem; border-radius: 8px; transition: background 0.2s ease;">
+                  Pilih Foto Avatar Baru
+                  <input type="file" id="profileAvatarInput" accept="image/*" style="display: none;">
+                </label>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label>Nama Lengkap Admin</label>
+                <input type="text" id="profileNameInput" placeholder="Masukkan nama Anda" value="Aldy Admin" required>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label>Jabatan / Subtitle Role</label>
+                <input type="text" id="profileRoleInput" placeholder="Contoh: Administrator Utama" value="Administrator"
+                  required>
+              </div>
+
+              <button type="submit" id="submitProfileBtn" class="btn-cta" style="width: 100%; justify-content: center;">
+                <span id="submitProfileText">Simpan Identitas & Avatar</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Card 2: Edit Password -->
+          <div class="admin-card">
+            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c;">Ubah Password Akses
+            </h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Perbarui password akun administrator Anda untuk memastikan keamanan akses dashboard.
+            </p>
+            <form id="changePasswordForm">
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label>Password Saat Ini</label>
+                <input type="password" id="currentPassInput" placeholder="Masukkan password lama" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label>Password Baru</label>
+                <input type="password" id="newPassInput" placeholder="Masukkan password baru (min 5 karakter)" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label>Konfirmasi Password Baru</label>
+                <input type="password" id="confirmPassInput" placeholder="Ketik ulang password baru Anda" required>
+              </div>
+              <button type="submit" id="submitChangePassBtn" class="btn-cta"
+                style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--accent-red) 0%, #ee5253 100%);">
+                <span id="submitChangePassText">Simpan Password Baru</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Tab 6: Calendar & Agenda System -->
+      <section id="tab-calendar" class="admin-tab-content">
+        <div class="dashboard-two-col">
+          <!-- Left Column: Interactive Calendar Grid -->
+          <div>
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <div>
+                  <h2 class="calendar-month-title" id="calMonthYearTitle">September 2026</h2>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem;">Klik tanggal untuk
+                    melihat atau menambah catatan pengingat.</p>
+                </div>
+                <div class="calendar-nav-btns">
+                  <button id="calPrevMonthBtn" class="cal-nav-btn" title="Bulan Sebelumnya">&lt;</button>
+                  <button id="calTodayBtn" class="cal-nav-btn"
+                    style="width: auto; padding: 0 0.75rem; font-size: 0.8rem;" title="Ke Hari Ini">Hari Ini</button>
+                  <button id="calNextMonthBtn" class="cal-nav-btn" title="Bulan Berikutnya">&gt;</button>
+                </div>
+              </div>
+
+              <!-- Weekdays Row -->
+              <div class="calendar-grid-weekdays">
+                <span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+              </div>
+
+              <!-- Days Grid -->
+              <div class="calendar-grid-days" id="calendarDaysGrid">
+                <!-- Dynamically generated calendar cells -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Note Form & Detailed Notes List -->
+          <div>
+            <!-- Add Note Card Form -->
+            <div class="admin-card">
+              <div class="card-header-flex">
+                <h3 class="card-title" style="font-size: 1.05rem;">📝 Tambah Catatan & Pengingat</h3>
+                <span id="selectedDateBadge"
+                  style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(83, 82, 237, 0.12); color: var(--accent-purple); border-radius: 6px; font-weight: 700;">25
+                  Sep 2026</span>
+              </div>
+              <form id="addCalendarNoteForm">
+                <input type="hidden" id="noteTargetDate" value="2026-09-25">
+
+                <div class="form-group" style="margin-bottom: 0.85rem;">
+                  <label>Judul Catatan / Agenda</label>
+                  <input type="text" id="noteTitleInput" placeholder="Contoh: Meeting Proyek Client A" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="form-group">
+                    <label>Kategori / Prioritas</label>
+                    <select id="noteCategoryInput">
+                      <option value="Penting">🔴 Penting (Merah)</option>
+                      <option value="Kerja">🟣 Kerja (Ungu)</option>
+                      <option value="Pribadi">🟢 Pribadi (Hijau)</option>
+                      <option value="Catatan">🟡 Catatan (Kuning)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Waktu / Jam</label>
+                    <input type="text" id="noteTimeInput" placeholder="Contoh: 09:00 WIB" value="09:00 WIB">
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label>Rincian Catatan</label>
+                  <textarea id="noteDescInput" rows="2" placeholder="Tuliskan rincian pengingat di sini..."
+                    required></textarea>
+                </div>
+
+                <button type="submit" class="btn-cta" style="width: 100%; justify-content: center;">
+                  <span>💾 Simpan Catatan Pengingat</span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Detailed Notes List Card -->
+            <div class="admin-card">
+              <div class="card-header-flex">
+                <div>
+                  <h3 class="card-title" style="font-size: 1.05rem;">📋 Daftar Rincian Catatan Agenda</h3>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem;">Seluruh daftar agenda
+                    yang tersimpan dalam sistem.</p>
+                </div>
+                <span id="totalNotesCountBadge"
+                  style="font-size: 0.75rem; padding: 0.15rem 0.55rem; background: #e0e7ff; color: #3730a3; border-radius: 6px; font-weight: 700;">0
+                  Catatan</span>
+              </div>
+
+              <div id="calendarNotesList" style="max-height: 320px; overflow-y: auto; padding-right: 0.25rem;">
+                <!-- Dynamically rendered note cards -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 7: Kelola Media Sosial -->
+      <section id="tab-social" class="admin-tab-content">
+        <div class="admin-card" style="max-width: 800px; margin: 0 auto;">
+          <div class="card-header-flex">
+            <div>
+              <h2 style="font-size: 1.25rem; font-weight: 700; color: #1a202c;">🌐 Pengaturan Tautan Media Sosial</h2>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">
+                Masukkan link URL profil media sosial Anda di bawah ini. Tautan ini akan otomatis menghubungkan icon
+                media sosial pada landing page portofolio.
+              </p>
+            </div>
+            <span
+              style="font-size: 0.75rem; padding: 0.25rem 0.65rem; background: rgba(46, 213, 115, 0.15); color: #2ed573; border-radius: 6px; font-weight: 700;">Live
+              Sync</span>
+          </div>
+
+          <form id="socialMediaForm" style="margin-top: 1.25rem;">
+            <div class="form-group" style="margin-bottom: 1.1rem;">
+              <label>🐱 GitHub Profil Link</label>
+              <input type="text" id="socialGithubInput" placeholder="Contoh: https://github.com/username">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.1rem;">
+              <label>💼 LinkedIn Profil Link</label>
+              <input type="text" id="socialLinkedinInput" placeholder="Contoh: https://linkedin.com/in/username">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.1rem;">
+              <label>📸 Instagram Profil Link</label>
+              <input type="text" id="socialInstagramInput" placeholder="Contoh: https://instagram.com/username">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.1rem;">
+              <label>🐦 Twitter / X Profil Link</label>
+              <input type="text" id="socialTwitterInput" placeholder="Contoh: https://x.com/username">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.1rem;">
+              <label>💬 WhatsApp Contact Link</label>
+              <input type="text" id="socialWhatsappInput" placeholder="Contoh: https://wa.me/6281234567890">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label>📧 Alamat Email Kontak</label>
+              <input type="text" id="socialEmailInput" placeholder="Contoh: mailto:nama@email.com">
+            </div>
+
+            <button type="submit" id="submitSocialBtn" class="admin-btn-primary"
+              style="width: 100%; justify-content: center;">
+              <span id="submitSocialText">💾 Simpan Tautan Media Sosial</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="./admin.js"></script>
+</body>
+
+</html>

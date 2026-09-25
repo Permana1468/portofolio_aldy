@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Detail Artikel Berita | Muhamad Aldiansyah</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="article-detail-page">
+
+  <!-- Header / Navigation -->
+  <header class="navbar article-navbar">
+    <div class="nav-container">
+      <a href="./index.html" class="logo">
+        <img src="./Cyber_Aldy/images/LOGO ALDY.png" alt="ALDY Logo" class="logo-img">
+      </a>
+      <a href="./index.html#news" class="btn-cta">
+        <div class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </div>
+        <span>Kembali ke Portofolio</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Article Content Wrapper -->
+  <main class="content-wrapper article-page-container">
+
+    <!-- Loading State -->
+    <div id="articleLoading" class="article-loading-state">
+      <div class="spinner"></div>
+      <p>Memuat isi artikel...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="articleError" class="article-error-state hidden">
+      <div class="glass-card section-card text-center" style="padding: 4rem 2rem; text-align: center;">
+        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ff5500; margin-bottom: 1rem;"></i>
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 0.5rem;">Artikel Tidak Ditemukan</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Artikel berita yang Anda cari mungkin telah dihapus atau ID tidak valid.</p>
+        <a href="./index.html#news" class="btn-cta" style="display: inline-flex;">
+          <span>Kembali ke Halaman Utama</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Article Detail Card -->
+    <article id="articleDetailCard" class="article-detail-card glass-card hidden">
+      <!-- Article Header Metadata -->
+      <div class="article-header">
+        <div class="article-meta-top">
+          <span id="articleCategory" class="news-category-tag">Kategori</span>
+          <span id="articleDate" class="article-date-badge"><i class="far fa-calendar-alt"></i> 24 September 2026</span>
+        </div>
+        <h1 id="articleTitle" class="article-main-title">Judul Artikel Berita</h1>
+
+        <div class="article-author-box">
+          <img src="./Cyber_Aldy/images/LOGO ALDY.png" alt="Penulis" class="author-avatar">
+          <div class="author-info">
+            <span class="author-name">Muhamad Aldiansyah</span>
+            <span class="author-role">Penulis & Administrator Portofolio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Image Banner -->
+      <div class="article-image-container">
+        <img id="articleImage" src="" alt="Foto Berita" class="article-featured-img">
+      </div>
+
+      <!-- Article Body Paragraphs -->
+      <div id="articleContent" class="article-body-content">
+        <!-- Content injected dynamically via JavaScript -->
+      </div>
+
+      <!-- Footer Share & Back Bar -->
+      <div class="article-footer-bar">
+        <div class="article-share-buttons">
+          <span style="font-size: 0.9rem; color: var(--color-text-muted); font-weight: 600;">Bagikan Artikel:</span>
+          <button id="shareWhatsappBtn" class="share-btn whatsapp" title="Bagikan via WhatsApp"><i class="fab fa-whatsapp"></i></button>
+          <button id="shareTwitterBtn" class="share-btn twitter" title="Bagikan via X"><i class="fab fa-x-twitter"></i></button>
+          <button id="copyLinkBtn" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></button>
+        </div>
+        <a href="./index.html#news" class="btn-cta">
+          <span>Kembali ke Berita</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Related Articles Section -->
+    <section id="relatedNewsSection" class="section related-news-section hidden">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="section-badge"># Artikel Lainnya</span>
+        <h2 class="section-title">Kabar & Berita Terkait</h2>
+      </div>
+
+      <div id="relatedNewsGrid" class="news-grid">
+        <!-- Related news cards loaded dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top: 5rem;">
+    <p>© 2026 Muhamad Aldiansyah. Hak Cipta Dilindungi Undang-Undang.</p>
+  </footer>
+
+  <script type="module" src="./berita.js"></script>
+</body>
+
+</html>
